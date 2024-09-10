@@ -57,7 +57,7 @@ const MapComponent = ({ data }) => {
     }
 
     return (
-        <MapContainer center={center} zoom={zoom} style={{ height: '90vh', width: '100%' }}>
+        <MapContainer center={center} zoom={zoom} style={{ height: '100%', width: '100%' }}>
             <ChangeView center={center} zoom={zoom} />
             <LayersControl position="topright">
                 <LayersControl.BaseLayer checked name="Standard Map">

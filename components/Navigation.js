@@ -5,10 +5,11 @@ const Navigation = () => {
     return (
         <nav>
             <ul>
-                <li><Link href="/">ホーム</Link></li>
-                <li><Link href="/page1">ページ 1</Link></li>
-                <li><Link href="/page2">ページ 2</Link></li>
-                <li><Link href="/page3">ページ 3</Link></li>
+                <li><Link href="/">Home</Link></li>
+                <li><Link href="/page1">Page1</Link></li>
+                <li><Link href="/page2">Page2</Link></li>
+                <li><Link href="/page3">Page3</Link></li>
+                <li><Link href="/time">Time</Link></li>
             </ul>
         </nav>
     );

@@ -3,10 +3,9 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic'; // Import dynamic from next/dynamic
 
 // Dynamically import the Map component without server-side rendering
-const Map = dynamic(() => import('../components/Map1'), { ssr: false });
+const Map = dynamic(() => import('../components/Map'), { ssr: false });
 
-// show world map
-const Page1 = () => {
+const HomePage = () => {
     const [data, setData] = useState(null); // Initialize state to hold earthquake data
 
     const updateMap = async () => {
@@ -31,10 +30,11 @@ const Page1 = () => {
     }, []);
 
     return (
-        <div style={{ width: '59vw', height: '65vh' }}>
+        <div style={{ width: '100%', height: '100vh' }}>
+            <p>Real-Time Earthquake Map</p>
             <Map data={data} /> {/* Pass the fetched data to the Map component */}
         </div>
     );
 };
 
-export default Page1;
+export default HomePage;

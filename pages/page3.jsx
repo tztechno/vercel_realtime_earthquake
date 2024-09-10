@@ -28,20 +28,20 @@ const Page3 = () => {
     const sortedData = data?.features?.slice().sort((a, b) => b.properties.time - a.properties.time) || [];
 
     return (
-        <div style={{ width: '97%', height: '100vh', padding: '20px' }}>
-            <h1>地震データ一覧</h1>
+        <div style={{ width: '97%', height: '100vh', padding: '5px', fontFamily: 'Arial, sans-serif' }}>
+            <p><strong>Recent Earthquakes</strong></p>
             {sortedData.length === 0 ? (
                 <p>データがありません。</p>
             ) : (
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr>
-                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>日時</th>
-                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>場所</th>
-                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>マグニチュード</th>
-                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>深さ (km)</th>
-                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>緯度</th>
-                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>経度</th>
+                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Time</th>
+                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Location</th>
+                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Mag</th>
+                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Depth(km)</th>
+                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Lat</th>
+                            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Lng</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,8 +52,8 @@ const Page3 = () => {
                                 <tr key={index}>
                                     <td style={{ border: '1px solid #ddd', padding: '8px' }}>{new Date(time).toLocaleString()}</td>
                                     <td style={{ border: '1px solid #ddd', padding: '8px' }}>{place}</td>
-                                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{mag}</td>
-                                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{depth}</td>
+                                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{mag.toFixed(2)}</td>
+                                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{depth.toFixed(2)}</td>
                                     <td style={{ border: '1px solid #ddd', padding: '8px' }}>{lat.toFixed(2)}</td>
                                     <td style={{ border: '1px solid #ddd', padding: '8px' }}>{long.toFixed(2)}</td>
                                 </tr>
