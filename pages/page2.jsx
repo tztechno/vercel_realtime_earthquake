@@ -31,7 +31,7 @@ const Page2 = () => {
     }, []);
 
     return (
-        <div style={{ width: '100%', height: '100vh' }}>
+        <div style={{ width: '100%', height: '100%' }}>
             <p>Real-Time Earthquake Map</p>
             <Map data={data} /> {/* Pass the fetched data to the Map component */}
         </div>

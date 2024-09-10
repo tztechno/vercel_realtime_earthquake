@@ -39,7 +39,7 @@ const ClockDisplay = () => {
             }}
         >
             {/* title */}
-            <div style={{ marginRight: '450px', fontWeight: 'bold' }}>Live Earthquakes</div>
+            <div style={{ marginRight: '470px', fontWeight: 'bold' }}>Live Earthquakes</div>
 
             <div style={{ margin: '4px' }}>
                 <strong>UTC:</strong> <span>{utcTime}</span>
