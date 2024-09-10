@@ -28,8 +28,7 @@ const Page3 = () => {
     const sortedData = data?.features?.slice().sort((a, b) => b.properties.time - a.properties.time) || [];
 
     return (
-        <div style={{ width: '97%', height: '100vh', padding: '5px', fontFamily: 'Arial, sans-serif' }}>
-            <p><strong>Recent Earthquakes</strong></p>
+        <div style={{ width: '97%', height: '100vh', padding: '5px'}}>
             {sortedData.length === 0 ? (
                 <p>データがありません。</p>
             ) : (

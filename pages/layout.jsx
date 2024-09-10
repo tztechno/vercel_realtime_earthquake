@@ -1,7 +1,7 @@
 import React from 'react';
+import Page1 from './page1'; // Import Page1 component
 import Page3 from './page3'; // Import Page3 component
 import Time from './time'; // Import Time component
-import Page1 from './page1'; // Import Page1 component
 
 const Layout = () => {
     return (
