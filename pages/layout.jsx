@@ -1,7 +1,7 @@
 // Layout.jsx
 import React from 'react';
 import Page1 from './page1'; // Import Page1 component
-import Page3 from './page3'; // Import Page3 component
+import Page5 from './page5'; // Import Page3 component
 import Page4 from './page4'; // Import Page3 component
 import Time from './time';   // Import Time component
 import Navigation from '../components/Navigation'; // Import Navigation component
@@ -42,7 +42,7 @@ const Layout = () => {
                     <Page1 />
                 </div>
                 <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    Center Bottom
+                    <Page4 />
                 </div>
             </div>
 
