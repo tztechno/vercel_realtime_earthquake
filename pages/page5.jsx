@@ -47,6 +47,7 @@ const ScatterPlot = ({ data }) => {
             },
             y: {
                 beginAtZero: true,
+                min: 2,  // Set the minimum value for the y-axis
                 title: {
                     display: true,
                     text: 'Magnitude'
@@ -106,7 +107,6 @@ const Page5 = () => {
 
     return (
         <div style={{ width: '98%', height: '98vh', padding: '10px' }}>
-            <h1>Earthquake Scatter Plot</h1>
             {data ? (
                 <ScatterPlot data={data} />
             ) : (
