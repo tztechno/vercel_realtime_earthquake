@@ -106,7 +106,7 @@ const Page5 = () => {
     }, []);
 
     return (
-        <div style={{ width: '98%', height: '98vh', padding: '10px' }}>
+        <div style={{ width: '98%', height: '80vh', padding: '10px' }}>
             {data ? (
                 <ScatterPlot data={data} />
             ) : (
