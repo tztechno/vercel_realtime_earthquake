@@ -31,7 +31,7 @@ const Page2 = () => {
     }, []);
 
     return (
-        <div style={{ width: '100%', height: '90vh' }}>
+        <div style={{ width: '100%', height: '98vh' }}>
             <Map data={data} /> {/* Pass the fetched data to the Map component */}
         </div>
     );

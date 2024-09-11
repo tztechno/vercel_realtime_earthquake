@@ -63,7 +63,7 @@ const Map = ({ data }) => {
     }
 
     return (
-        <MapContainer center={[0,0]} zoom={1} style={{ height: '100%', width: '100%' }}>
+        <MapContainer center={[0,0]} zoom={2} style={{ height: '100%', width: '100%' }}>
             <LayersControl position="topright">
                 <LayersControl.BaseLayer checked name="Standard Map">
                     <TileLayer

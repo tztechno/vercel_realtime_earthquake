@@ -47,7 +47,7 @@ const MapComponent = ({ data }) => {
         if (data && data.features && data.features.length > 0) {
             const latestFeature = data.features[0];
             setCenter([latestFeature.geometry.coordinates[1], latestFeature.geometry.coordinates[0]]);
-            setZoom(6);
+            setZoom(7);
         }
     }, [data]);
     

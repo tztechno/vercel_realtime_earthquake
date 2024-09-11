@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 const ClockDisplay = () => {
     const [utcTime, setUtcTime] = useState('');
+    const [jstTime, setJstTime] = useState('');
 
     useEffect(() => {
         function updateClocks() {
             const utc = new Date().toLocaleString('en-US', { timeZone: 'UTC' });
+            const jst = new Date().toLocaleString('en-US', { timeZone: 'Asia/Tokyo' });
 
             function formatDateTime(dateTime) {
                 const date = new Date(dateTime);
@@ -19,6 +21,7 @@ const ClockDisplay = () => {
             }
 
             setUtcTime(formatDateTime(utc));
+            setJstTime(formatDateTime(jst));
         }
 
         updateClocks();
@@ -34,15 +37,17 @@ const ClockDisplay = () => {
                 display: 'flex',
                 justifyContent: 'flex-start',
                 alignItems: 'center',
-                height: '50px', // 高さを固定（必要に応じて調整）
+                height: '50px',
                 padding: '0 10px',
             }}
         >
-            {/* title */}
-            <div style={{ marginRight: '470px', fontWeight: 'bold' }}>Live Earthquakes</div>
-
-            <div style={{ margin: '4px' }}>
-                <strong>UTC:</strong> <span>{utcTime}</span>
+            <div style={{ display: 'flex', gap: '20px' }}>
+                <div style={{ margin: '4px' }}>
+                    <strong>UTC:</strong> <span>{utcTime}</span>
+                </div>
+                <div style={{ margin: '4px' }}>
+                    <strong>JST:</strong> <span>{jstTime}</span>
+                </div>
             </div>
         </div>
     );
