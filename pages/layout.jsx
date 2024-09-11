@@ -42,7 +42,7 @@ const Layout = () => {
                     <Page1 />
                 </div>
                 <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    <Page4 />
+                    <Page5 />
                 </div>
             </div>
 
