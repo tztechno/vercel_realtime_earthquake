@@ -2,6 +2,7 @@
 import React from 'react';
 import Page1 from './page1'; // Import Page1 component
 import Page3 from './page3'; // Import Page3 component
+import Page4 from './page4'; // Import Page3 component
 import Time from './time';   // Import Time component
 import Navigation from '../components/Navigation'; // Import Navigation component
 
@@ -19,7 +20,7 @@ const Layout = () => {
                         overflow: 'auto',
                     }}
                 >
-                    <Page3 />
+                    <Page4 />
                 </div>
                 <div
                     style={{
@@ -47,13 +48,14 @@ const Layout = () => {
 
             {/* Right Column */}
             <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ flex: '0 0 98%', border: '1px solid #999', boxSizing: 'border-box' }}>
+
+                <div style={{ flex: '0 0 91%', border: '1px solid #999', boxSizing: 'border-box' }}>
                     Right Top
                 </div>
 
                 <div
                     style={{
-                        flex: '0 0 8%', // Set height to 10%
+                        flex: '0 0 7%', // Set height to 10%
                         border: '1px solid #999',
                         boxSizing: 'border-box',
                         height: '50px', // Fixed minimum height (adjust if needed)

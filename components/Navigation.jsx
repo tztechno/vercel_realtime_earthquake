@@ -27,6 +27,16 @@ const Navigation = () => {
                     </Link>
                 </li>
                 <li>
+                    <Link href="/page4">
+                        <a>Table2</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/page5">
+                        <a>Plot</a>
+                    </Link>
+                </li>
+                <li>
                     <Link href="/time">
                         <a>Time</a>
                     </Link>

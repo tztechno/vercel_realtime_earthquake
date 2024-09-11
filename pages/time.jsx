@@ -35,17 +35,26 @@ const ClockDisplay = () => {
             style={{
                 fontFamily: 'Arial, sans-serif',
                 display: 'flex',
-                justifyContent: 'flex-start',
+                flexDirection: 'column',
+                justifyContent: 'center',
                 alignItems: 'center',
-                height: '50px',
-                padding: '0 10px',
+                padding: '0 4px',
             }}
         >
-            <div style={{ display: 'flex', gap: '20px' }}>
-                <div style={{ margin: '4px' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '2px',
+                    textAlign: 'left',
+                    width: '210px', // Set your desired width
+                    margin: '0 auto', // Center the content within the given width
+                }}
+            >
+                <div style={{ margin: '0' }}>
                     <strong>UTC:</strong> <span>{utcTime}</span>
                 </div>
-                <div style={{ margin: '4px' }}>
+                <div style={{ margin: '0' }}>
                     <strong>JST:</strong> <span>{jstTime}</span>
                 </div>
             </div>
