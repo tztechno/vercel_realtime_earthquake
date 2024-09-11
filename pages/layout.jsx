@@ -34,6 +34,23 @@ const Layout = () => {
 
             {/* Center Column */}
             <div style={{ flex: '0 0 80%', display: 'flex', flexDirection: 'column' }}>
+                
+
+
+                <div style={{ flex: '0 0 60%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                    <Page1 />
+                </div>
+                <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                    Center Bottom
+                </div>
+            </div>
+
+            {/* Right Column */}
+            <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ flex: '0 0 98%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                    Right Top
+                </div>
+
                 <div
                     style={{
                         flex: '0 0 8%', // Set height to 10%
@@ -48,22 +65,7 @@ const Layout = () => {
                 >
                     <Time />
                 </div>
-                <div style={{ flex: '0 0 60%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    <Page1 />
-                </div>
-                <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    Center Bottom
-                </div>
-            </div>
 
-            {/* Right Column */}
-            <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ flex: '0 0 98%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    Right Top
-                </div>
-                <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    Right Bottom
-                </div>
             </div>
         </div>
     );
