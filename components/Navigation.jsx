@@ -13,42 +13,42 @@ const Navigation = () => {
                 </li>
                 <li>
                     <Link href="/page1">
-                        <a>Total Earthquake Map</a>
+                        <a>1:Total Earthquake Map</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/page2">
-                        <a>Latest Earthquake Map</a>
+                        <a>2:Latest Earthquake Map</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/page7">
-                        <a>Huge Earthquake Map</a>
+                        <a>7:Huge Earthquake Map</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/page3">
-                        <a>Table All</a>
+                        <a>3:Table All</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/page4">
-                        <a>Table All 3 columns</a>
+                        <a>4:Table All 3 columns</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/page6">
-                        <a>Table Huge Earthquake</a>
+                        <a>6:Table Huge Earthquake</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/page5">
-                        <a>Magnituide Fig</a>
+                        <a>5:Magnituide Fig</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/time">
-                        <a>Time</a>
+                        <a>t:Time</a>
                     </Link>
                 </li>
             </ul>
