@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup, LayersControl } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -16,7 +16,6 @@ function interpolateColor(factor, color1, color2) {
     const r = Math.round(color1.r + factor * (color2.r - color1.r));
     const g = Math.round(color1.g + factor * (color2.g - color1.g));
     const b = Math.round(color1.b + factor * (color2.b - color1.b));
-
     return { r, g, b };
 }
 
@@ -29,7 +28,6 @@ function rgbToHex(r, g, b) {
 function getMarkerColor(magnitude) {
     const normalizedMagnitude = magnitude <= 4 ? 0 : magnitude >= 7 ? 1 : (magnitude - 4) / 3;
     const interpolatedColor = interpolateColor(normalizedMagnitude, { r: 255, g: 255, b: 0 }, { r: 255, g: 0, b: 0 });
-
     return rgbToHex(interpolatedColor.r, interpolatedColor.g, interpolatedColor.b);
 }
 
@@ -38,21 +36,23 @@ function getColormapGradient() {
     return 'linear-gradient(to right, yellow, red)';
 }
 
-// Component to render the colormap bar
+// Colormap bar component
 const ColormapBar = () => {
     return (
-        <div
-            style={{
-                position: 'absolute',
-                bottom: '10px',
-                left: '10px',
-                background: getColormapGradient(),
-                width: '200px',
-                height: '20px',
-                borderRadius: '4px',
-                zIndex: 1000, // Ensure the bar is on top of the map
-            }}
-        />
+        <div style={{
+            position: 'absolute',
+            bottom: '20px',
+            left: '20px',
+            width: '200px',
+            height: '20px',
+            background: 'linear-gradient(to right, yellow, red)',
+            zIndex: 1000,
+        }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '25px' }}>
+                <span>4.0</span>
+                <span>8.0+</span>
+            </div>
+        </div>
     );
 };
 
@@ -63,11 +63,22 @@ const Map = ({ data }) => {
     }
 
     return (
-        <MapContainer center={[0, 0]} zoom={2} style={{ height: '90%', width: '100%' }}>
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
+        <MapContainer center={[0,0]} zoom={2} style={{ height: '100%', width: '100%' }}>
+            <LayersControl position="topright">
+                <LayersControl.BaseLayer checked name="Standard Map">
+                    <TileLayer
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    />
+                </LayersControl.BaseLayer>
+                <LayersControl.BaseLayer name="Aerial (Satellite)">
+                    <TileLayer
+                        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                        attribution='&copy; <a href="https://www.esri.com/">Esri</a>'
+                    />
+                </LayersControl.BaseLayer>
+            </LayersControl>
+
             {data.features.map((feature, index) => (
                 <Marker
                     key={index}
@@ -88,6 +99,7 @@ const Map = ({ data }) => {
                     </Popup>
                 </Marker>
             ))}
+
             <ColormapBar />
         </MapContainer>
     );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, LayersControl, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -12,15 +12,10 @@ const getMarkerColor = (magnitude) => {
     return `rgb(${r},${g},${b})`;
 };
 
-// Component to update map view and open popup
-const ChangeViewAndOpenPopup = ({ center, zoom, popupRef }) => {
+// Component to update map view
+const ChangeView = ({ center, zoom }) => {
     const map = useMap();
-    useEffect(() => {
-        map.setView(center, zoom);
-        if (popupRef.current) {
-            popupRef.current.openPopup();
-        }
-    }, [map, center, zoom, popupRef]);
+    map.setView(center, zoom);
     return null;
 };
 
@@ -47,7 +42,6 @@ const ColormapBar = () => {
 const MapComponent = ({ data }) => {
     const [center, setCenter] = useState([36, 140]);
     const [zoom, setZoom] = useState(5);
-    const popupRef = useRef();
 
     useEffect(() => {
         if (data && data.features && data.features.length > 0) {
@@ -56,7 +50,7 @@ const MapComponent = ({ data }) => {
             setZoom(7);
         }
     }, [data]);
-
+    
     // データがない場合のフォールバック表示
     if (!data || !data.features) {
         return <div>Loading map data...</div>;
@@ -64,7 +58,7 @@ const MapComponent = ({ data }) => {
 
     return (
         <MapContainer center={center} zoom={zoom} style={{ height: '100%', width: '100%' }}>
-            <ChangeViewAndOpenPopup center={center} zoom={zoom} popupRef={popupRef} />
+            <ChangeView center={center} zoom={zoom} />
             <LayersControl position="topright">
                 <LayersControl.BaseLayer checked name="Standard Map">
                     <TileLayer
@@ -90,7 +84,6 @@ const MapComponent = ({ data }) => {
                         iconSize: [10, 10],
                         iconAnchor: [5, 5],
                     })}
-                    ref={index === 0 ? popupRef : null}
                 >
                     <Popup>
                         <div>
