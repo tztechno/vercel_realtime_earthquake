@@ -4,6 +4,7 @@ import Page1 from './page1'; // Import Page1 component
 import Page5 from './page5'; // Import Page3 component
 import Page4 from './page4'; // Import Page3 component
 import Time from './time';   // Import Time component
+import AudioVisualizer from './sound';   // Import Time component
 import Navigation from '../components/Navigation'; // Import Navigation component
 
 const Layout = () => {
@@ -50,7 +51,7 @@ const Layout = () => {
             <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
 
                 <div style={{ flex: '0 0 91%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    Right Top
+                    <AudioVisualizer />
                 </div>
 
                 <div

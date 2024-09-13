@@ -17,7 +17,8 @@ const Navigation = () => {
 
                 <li><Link href="/page5">5: Mag Plot</Link></li>      
 
-                <li><Link href="/time">Time</Link></li>            
+                <li><Link href="/time">Time</Link></li>   
+                <li><Link href="/sound">Sound</Link></li>   
                 <li><Link href="/NavigationPage">Navigation</Link></li>   
             </ul>
         </nav>
