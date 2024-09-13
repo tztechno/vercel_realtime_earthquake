@@ -12,7 +12,7 @@ const Layout = () => {
     const [currentPageIndex, setCurrentPageIndex] = useState(0); // State to track the current page index
 
     // Array of pages to display alternately
-    const pages = [<Page1 />, <Page7 />, <Page9 />];
+    const pages = [<Page1 key="page1" />, <Page7 key="page7" />, <Page9 key="page9" />];
 
     useEffect(() => {
         const interval = setInterval(() => {
