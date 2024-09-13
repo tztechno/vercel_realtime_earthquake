@@ -46,7 +46,6 @@ const AudioVisualizer = () => {
             for (let i = 0; i < bufferLength; i++) {
                 const bar = document.createElement('div');
                 bar.className = 'bar';
-                bar.style.width = '5px'; // Initial bar width
                 visualizerRef.current.appendChild(bar);
             }
         }
@@ -58,9 +57,8 @@ const AudioVisualizer = () => {
         const bars = visualizerRef.current.querySelectorAll('.bar');
         bars.forEach((bar, index) => {
             const value = dataArrayRef.current[index];
-            const maxWidth = 300; // Max width for bars
-            bar.style.width = `${(value / 255) * maxWidth}px`; // Change width based on volume
-            bar.style.backgroundColor = `rgb(${value}, ${255 - value}, 50)`; // Color change
+            const brightness = value / 255; // Scale brightness between 0 and 1
+            bar.style.opacity = brightness; // Flash effect by changing opacity
         });
     };
 
@@ -85,11 +83,19 @@ const AudioVisualizer = () => {
 
 // Inline styles for visualizer and bars
 const visualizerStyle = {
-    width: '100%',
+    width: '300px', // Set the overall width of the visualizer
     height: '30px',
     background: '#000',
     display: 'flex',
+    justifyContent: 'space-between',
     alignItems: 'center',
+};
+
+const barStyle = {
+    height: '100%',
+    width: '5px',
+    background: '#00f',
+    transition: 'opacity 0.1s', // Smooth transition effect for flashing
 };
 
 export default AudioVisualizer;
