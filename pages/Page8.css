@@ -1,0 +1,54 @@
+.slider-container {
+    height: 650px;
+    /* コンテナの高さ */
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-table {
+    width: 100%;
+    border-collapse: collapse;
+    position: absolute;
+    top: 0;
+    animation: slide 100s ease-in-out infinite;
+    /* アニメーションの総時間を20秒に設定 */
+}
+
+.slider-table th,
+.slider-table td {
+    border: 1px solid #ddd;
+    padding: 4px;
+    font-size: 12px;
+    /* 文字サイズを小さく設定 */
+}
+
+@keyframes slide {
+    0% {
+        top: 0;
+    }
+
+    2% {
+        top: 0;
+        /* 最初の位置で3秒待機 */
+    }
+
+    97% {
+        top: -1900px;
+        /* 高さ500px分スクロール */
+    }
+
+    98% {
+        top: -1900px;
+            /* 高さ500px分スクロール */
+    }
+
+    99% {
+        top: 0;
+        /* 上に戻る */
+    }
+
+    100% {
+        top: 0;
+        /* 元の位置に戻る */
+    }
+}

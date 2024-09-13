@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Page1 from './page1';
 import Page5 from './page5';
-import Page4 from './page4';
+import Page8 from './page8';
 import Page7 from './page7'; // Import Page7 component
 import Time from './time';
 import AudioVisualizer from './sound';
@@ -31,7 +31,7 @@ const Layout = () => {
                         overflow: 'auto',
                     }}
                 >
-                    <Page4 />
+                    <Page8 />
                 </div>
                 <div
                     style={{

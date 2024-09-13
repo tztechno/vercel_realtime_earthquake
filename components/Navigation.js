@@ -12,7 +12,8 @@ const Navigation = () => {
                 <li><Link href="/page7">7: Huge Map</Link></li>
 
                 <li><Link href="/page3">3: Table all</Link></li>
-                <li><Link href="/page4">4: Table small</Link></li>  
+                <li><Link href="/page4">4: Table small</Link></li> 
+                <li><Link href="/page8">8: Table slide</Link></li>   
                 <li><Link href="/page6">6: Table huge</Link></li>  
 
                 <li><Link href="/page5">5: Mag Plot</Link></li>      
