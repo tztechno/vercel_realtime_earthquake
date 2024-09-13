@@ -47,7 +47,7 @@ const ClockDisplay = () => {
                     flexDirection: 'column',
                     gap: '2px',
                     textAlign: 'left',
-                    width: '210px', // Set your desired width
+                    width: '236px', // Set your desired width
                     margin: '0 auto', // Center the content within the given width
                 }}
             >

@@ -61,12 +61,18 @@ const Layout = () => {
             {/* Right Column */}
             <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
 
+
+
+                <div style={{ flex: '0 0 16%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                    <AudioVisualizer />
+                </div>
+
                 <div
                     style={{
                         flex: '0 0 7%',
                         border: '1px solid #999',
                         boxSizing: 'border-box',
-                        height: '50px',
+                        height: '60px',
                         display: 'flex',
                         overflow: 'auto',
                         alignItems: 'flex-end',
@@ -74,10 +80,6 @@ const Layout = () => {
                     }}
                 >
                     <Time />
-                </div>
-
-                <div style={{ flex: '0 0 20%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    <AudioVisualizer />
                 </div>
 
                 <div
