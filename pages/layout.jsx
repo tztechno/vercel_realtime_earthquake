@@ -60,9 +60,7 @@ const Layout = () => {
 
             {/* Right Column */}
             <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ flex: '0 0 91%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    <AudioVisualizer />
-                </div>
+
                 <div
                     style={{
                         flex: '0 0 7%',
@@ -77,6 +75,22 @@ const Layout = () => {
                 >
                     <Time />
                 </div>
+
+                <div style={{ flex: '0 0 20%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                    <AudioVisualizer />
+                </div>
+
+                <div
+                    style={{
+                        flex: '0 0 50%',
+                        border: '1px solid #999',
+                        boxSizing: 'border-box',
+                    }}
+                >
+                    <Navigation />
+                </div>
+
+
             </div>
         </div>
     );
