@@ -4,22 +4,40 @@ import Page5 from './page5';
 import Page8 from './page8';
 import Page7 from './page7';
 import Page9 from './page9';
+import Page10 from './page10';
+import Page11 from './page11';
+import Page12 from './page12';
+import Page13 from './page13';
+import Page14 from './page14';
 import Time from './time';
 import AudioVisualizer from './sound';
 import Navigation from '../components/Navigation';
 
 const Layout = () => {
-    const [currentPageIndex, setCurrentPageIndex] = useState(0); // State to track the current page index
+    // States to track the current page index for each slideshow
+    const [currentPageIndex1, setCurrentPageIndex1] = useState(0);
+    const [currentPageIndex2, setCurrentPageIndex2] = useState(0);
 
-    // Array of pages to display alternately
-    const pages = [<Page1 />, <Page7 />, <Page9 />];
+    // Arrays of pages for each slideshow
+    const pages1 = [<Page1 key="page1" />, <Page7 key="page7" />, <Page9 key="page9" />];
+    const pages2 = [<Page5 key="page5" />, <Page11 key="page11" />, <Page12 key="page12" />, <Page13 key="page13" />, <Page14 key="page14" />];
 
+    // Effect to change the page index for the first slideshow
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentPageIndex((prevIndex) => (prevIndex + 1) % pages.length); // Cycle through the pages
+        const interval1 = setInterval(() => {
+            setCurrentPageIndex1((prevIndex) => (prevIndex + 1) % pages1.length);
         }, 60000); // Change page every 60 seconds (60000 milliseconds)
 
-        return () => clearInterval(interval); // Clean up interval on component unmount
+        return () => clearInterval(interval1);
+    }, []);
+
+    // Effect to change the page index for the second slideshow
+    useEffect(() => {
+        const interval2 = setInterval(() => {
+            setCurrentPageIndex2((prevIndex) => (prevIndex + 1) % pages2.length);
+        }, 30000); // Change page every 30 seconds (30000 milliseconds)
+
+        return () => clearInterval(interval2);
     }, []);
 
     return (
@@ -51,24 +69,37 @@ const Layout = () => {
             {/* Center Column */}
             <div style={{ flex: '0 0 80%', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ flex: '0 0 60%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    {pages[currentPageIndex]} {/* Display the current page */}
+                    {pages1[currentPageIndex1]} {/* Display the current page from the first slideshow */}
                 </div>
                 <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    <Page5 />
+                    {pages2[currentPageIndex2]} {/* Display the current page from the second slideshow */}
                 </div>
             </div>
 
             {/* Right Column */}
             <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ flex: '0 0 91%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                <div
+                    style={{
+                        flex: '0 0 50%',
+                        border: '1px solid #999',
+                        width: '320px',
+                        boxSizing: 'border-box',
+                        overflow: 'auto',
+                    }}
+                >
+                    <Page10 />
+                </div>
+
+                <div style={{ flex: '0 0 16%', border: '1px solid #999', boxSizing: 'border-box' }}>
                     <AudioVisualizer />
                 </div>
+
                 <div
                     style={{
                         flex: '0 0 7%',
                         border: '1px solid #999',
                         boxSizing: 'border-box',
-                        height: '50px',
+                        height: '60px',
                         display: 'flex',
                         overflow: 'auto',
                         alignItems: 'flex-end',
@@ -76,6 +107,16 @@ const Layout = () => {
                     }}
                 >
                     <Time />
+                </div>
+
+                <div
+                    style={{
+                        flex: '0 0 50%',
+                        border: '1px solid #999',
+                        boxSizing: 'border-box',
+                    }}
+                >
+                    <Navigation />
                 </div>
             </div>
         </div>
