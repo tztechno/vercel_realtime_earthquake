@@ -1,9 +1,10 @@
 // Use native fetch available in Node.js 18+
 export default async function handler(req, res) {
-    const now = new Date();
-    const fortyEightHoursAgo = new Date(now.getTime() - 48 * 60 * 60 * 1000);
-    const start = fortyEightHoursAgo.toISOString();
-    const end = now.toISOString();
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    const start = yesterday.toISOString().split('T')[0];
+    const end = today.toISOString().split('T')[0];
     
     const mag = 2.0;
     const maxLat = 90;
