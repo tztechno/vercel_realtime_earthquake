@@ -43,17 +43,17 @@ const Layout = () => {
     return (
         <div style={{ display: 'flex', height: '100vh', margin: 0, boxSizing: 'border-box' }}>
             {/* Left Column */}
-            <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ flex: '0 0 15%', display: 'flex', flexDirection: 'column' }}>
                 <div
                     style={{
-                        flex: '0 0 50%',
+                        flex: '0 0 98%',
                         border: '1px solid #999',
-                        width: '320px',
+                        width: '286px',
                         boxSizing: 'border-box',
                         overflow: 'auto',
                     }}
                 >
-                    <Page10 />
+                    <Page8 />
                 </div>
                 <div
                     style={{
@@ -64,6 +64,32 @@ const Layout = () => {
                 >
                     <Navigation />
                 </div>
+            </div>
+
+            {/* Center Column */}
+            <div style={{ flex: '0 0 80%', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ flex: '0 0 60%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                    {pages1[currentPageIndex1]} {/* Display the current page from the first slideshow */}
+                </div>
+                <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                    {pages2[currentPageIndex2]} {/* Display the current page from the second slideshow */}
+                </div>
+            </div>
+
+            {/* Right Column */}
+            <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
+                <div
+                    style={{
+                        flex: '0 0 73%',
+                        border: '1px solid #999',
+                        width: '320px',
+                        boxSizing: 'border-box',
+                        overflow: 'auto',
+                    }}
+                >
+                    <Page10 />
+                </div>
+
                 <div style={{ flex: '0 0 16%', border: '1px solid #999', boxSizing: 'border-box' }}>
                     <AudioVisualizer />
                 </div>
@@ -83,18 +109,16 @@ const Layout = () => {
                     <Time />
                 </div>
 
-            </div>
-
-            {/* Center Column */}
-            <div style={{ flex: '0 0 80%', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ flex: '0 0 60%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    {pages1[currentPageIndex1]} {/* Display the current page from the first slideshow */}
+                <div
+                    style={{
+                        flex: '0 0 50%',
+                        border: '1px solid #999',
+                        boxSizing: 'border-box',
+                    }}
+                >
+                    <Navigation />
                 </div>
-                <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    {pages2[currentPageIndex2]} {/* Display the current page from the second slideshow */}
-                </div>
             </div>
-
         </div>
     );
 };

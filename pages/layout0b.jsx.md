@@ -46,7 +46,7 @@ const Layout = () => {
             <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
                 <div
                     style={{
-                        flex: '0 0 50%',
+                        flex: '0 0 73%',
                         border: '1px solid #999',
                         width: '320px',
                         boxSizing: 'border-box',
