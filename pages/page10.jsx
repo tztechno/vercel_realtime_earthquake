@@ -48,7 +48,7 @@ const Page10 = () => {
                                 const { mag, place, time } = feature.properties;
                                 return (
                                     <tr key={index}>
-                                        <td style={{ border: '1px solid #ddd', padding: '4px' }}>{new Date(time).toLocaleString()}</td>
+                                        <td style={{ border: '1px solid #ddd', padding: '4px' }}>{new Date(time).toUTCString()}</td>
                                         <td style={{ border: '1px solid #ddd', padding: '4px' }}>{place}</td>
                                         <td style={{ border: '1px solid #ddd', padding: '4px' }}>{mag.toFixed(2)}</td>
                                     </tr>

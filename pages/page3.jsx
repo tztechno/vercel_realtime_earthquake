@@ -49,7 +49,7 @@ const Page3 = () => {
                             const [long, lat, depth] = feature.geometry.coordinates;
                             return (
                                 <tr key={index}>
-                                    <td style={{ border: '1px solid #ddd', padding: '4px' }}>{new Date(time).toLocaleString()}</td>
+                                    <td style={{ border: '1px solid #ddd', padding: '4px' }}>{new Date(time).toUTCString}</td>
                                     <td style={{ border: '1px solid #ddd', padding: '4px' }}>{place}</td>
                                     <td style={{ border: '1px solid #ddd', padding: '4px' }}>{mag.toFixed(2)}</td>
                                     <td style={{ border: '1px solid #ddd', padding: '4px' }}>{depth.toFixed(2)}</td>

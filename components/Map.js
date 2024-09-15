@@ -92,7 +92,7 @@ const Map = ({ data }) => {
                 >
                     <Popup>
                         <div>
-                            <b>Date: </b>{new Date(feature.properties.time).toLocaleString()}<br />
+                            <b>Date: </b>{new Date(feature.properties.time).toUTCString()}<br />
                             <b>Location: </b>{feature.properties.place}<br />
                             <b>Magnitude: </b>{feature.properties.mag}
                         </div>

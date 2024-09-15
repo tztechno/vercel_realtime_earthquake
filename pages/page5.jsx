@@ -58,7 +58,7 @@ const ScatterPlot = ({ data }) => {
             tooltip: {
                 callbacks: {
                     label: (context) => {
-                        const time = context.raw.x.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' });
+                        const time = new Date(context.raw.x).toUTCString();
                         return `Time: ${time}, Magnitude: ${context.raw.y.toFixed(2)}`;
                     }
                 }

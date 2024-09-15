@@ -67,7 +67,7 @@ const Page4 = () => {
                             return (
                                 <tr key={index}>
                                     <td style={{ border: '1px solid #ddd', padding: '4px', fontSize: '12px' }}>
-                                        {new Date(time).toLocaleString()}
+                                        {new Date(time).toUTCString()}
                                     </td>
                                     <td style={{ border: '1px solid #ddd', padding: '4px', fontSize: '12px' }}>{place}</td>
                                     <td style={{ border: '1px solid #ddd', padding: '4px', fontSize: '12px' }}>{mag.toFixed(2)}</td>
