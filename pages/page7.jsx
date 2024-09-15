@@ -49,7 +49,7 @@ const Page7 = () => {
     return (
         <div style={{ width: '100%', height: '98vh' }}>
             <Map3 feature={currentFeature} />
-            <div style={{ position: 'absolute', top: '10px', left: '350px', background: 'white', padding: '10px', zIndex: 1000 }}>
+            <div style={{ position: 'absolute', top: '10px', left: '380px', background: 'white', padding: '10px', zIndex: 1000 }}>
 {currentFeatureIndex + 1} of {filteredFeatures.length}
             </div>
         </div>
