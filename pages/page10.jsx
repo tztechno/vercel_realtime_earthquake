@@ -38,7 +38,7 @@ const Page10 = () => {
                     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                         <thead>
                             <tr>
-                                <th style={{ border: '1px solid #ddd', padding: '4px' }}>JST</th>
+                                <th style={{ border: '1px solid #ddd', padding: '4px' }}>UTC</th>
                                 <th style={{ border: '1px solid #ddd', padding: '4px' }}>Loc</th>
                                 <th style={{ border: '1px solid #ddd', padding: '4px' }}>Mag</th>
                             </tr>
@@ -48,7 +48,7 @@ const Page10 = () => {
                                 const { mag, place, time } = feature.properties;
                                 return (
                                     <tr key={index}>
-                                        <td style={{ border: '1px solid #ddd', padding: '4px' }}>{new Date(time).toUTCString()}</td>
+                                        <td style={{ border: '1px solid #ddd', padding: '4px' }}>{new Date(time).toISOString().replace('T', ' ').substring(0, 19)}</td>
                                         <td style={{ border: '1px solid #ddd', padding: '4px' }}>{place}</td>
                                         <td style={{ border: '1px solid #ddd', padding: '4px' }}>{mag.toFixed(2)}</td>
                                     </tr>
