@@ -12,7 +12,7 @@ const ScatterPlot = ({ data }) => {
     useEffect(() => {
         if (data && data.features) {
             const plotData = data.features.map(feature => ({
-                x: new Date(feature.properties.time),
+                x: new Date(feature.properties.time).toISOString().replace('T', ' ').substring(0, 19),
                 y: feature.properties.mag
             }));
 
@@ -58,7 +58,7 @@ const ScatterPlot = ({ data }) => {
             tooltip: {
                 callbacks: {
                     label: (context) => {
-                        const time = new Date(context.raw.x).toISOString().replace('T', ' ').substring(0, 19);
+                        const time = new Date(context.raw.x);
                         return `Time: ${time}, Magnitude: ${context.raw.y.toFixed(2)}`;
                     }
                 }
