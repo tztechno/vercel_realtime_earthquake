@@ -87,7 +87,7 @@ const Map4 = ({ data }) => {
                 >
                     <Popup>
                         <div>
-                            <b>Date: </b>{new Date(feature.properties.time).toUTCString()}<br />
+                            <b>Date: </b>{new Date(feature.properties.time).toISOString().replace('T', ' ').substring(0, 19)}<br />
                             <b>Location: </b>{feature.properties.place}<br />
                             <b>Magnitude: </b>{feature.properties.mag}
                         </div>

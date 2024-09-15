@@ -56,7 +56,7 @@ const Page4 = () => {
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr>
-                            <th style={{ border: '1px solid #ddd', padding: '4px', fontSize: '12px' }}>JST</th>
+                            <th style={{ border: '1px solid #ddd', padding: '4px', fontSize: '12px' }}>UTC</th>
                             <th style={{ border: '1px solid #ddd', padding: '4px', fontSize: '12px' }}>Loc</th>
                             <th style={{ border: '1px solid #ddd', padding: '4px', fontSize: '12px' }}>Mag</th>
                         </tr>
@@ -67,7 +67,7 @@ const Page4 = () => {
                             return (
                                 <tr key={index}>
                                     <td style={{ border: '1px solid #ddd', padding: '4px', fontSize: '12px' }}>
-                                        {new Date(time).toUTCString()}
+                                        {new Date(time).toISOString().replace('T', ' ').substring(0, 19)}
                                     </td>
                                     <td style={{ border: '1px solid #ddd', padding: '4px', fontSize: '12px' }}>{place}</td>
                                     <td style={{ border: '1px solid #ddd', padding: '4px', fontSize: '12px' }}>{mag.toFixed(2)}</td>
