@@ -58,7 +58,7 @@ const ScatterPlot = ({ data }) => {
             tooltip: {
                 callbacks: {
                     label: (context) => {
-                        const time = new Date(context.raw.x);
+                        const time = new Date(context.raw.x).toISOString().replace('T', ' ').substring(0, 19);
                         return `Time: ${time}, Magnitude: ${context.raw.y.toFixed(2)}`;
                     }
                 }
