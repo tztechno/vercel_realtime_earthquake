@@ -34,7 +34,7 @@ const Page10 = () => {
             {filteredAndSortedData.length === 0 ? (
                 <p>マグニチュード5以上の地震データがありません。</p>
             ) : (
-                <div style={{ fontSize: '0.8em' }}> {/* Smaller text size */}
+                <div style={{ fontSize: '0.6em' }}> {/* Smaller text size */}
                     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                         <thead>
                             <tr>
