@@ -116,7 +116,7 @@ const Layout = () => {
 
                 {/* Center Column */}
                 <div style={{ flex: '0 0 80%', display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ flex: '0 0 60%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                    <div style={{ flex: '0 0 51%', border: '1px solid #999', boxSizing: 'border-box' }}>
                         {pages1[currentPageIndex1]} {/* Display the current page from the first slideshow */}
                     </div>
                     <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
