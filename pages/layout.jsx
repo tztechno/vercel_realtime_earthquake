@@ -41,60 +41,89 @@ const Layout = () => {
     }, []);
 
     return (
-        <div style={{ display: 'flex', height: '100vh', margin: 0, boxSizing: 'border-box' }}>
-            {/* Left Column */}
-            <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ position: 'relative', minHeight: '100vh', margin: 0, boxSizing: 'border-box' }}>
+            {/* Background image with repeat, opacity, and fixed scroll */}
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    zIndex: -1, // Ensure the background is behind the content
+                    pointerEvents: 'none', // Disable interaction with the background
+                }}
+            >
                 <div
                     style={{
-                        flex: '0 0 50%',
-                        border: '1px solid #999',
-                        width: '320px',
-                        boxSizing: 'border-box',
-                        overflow: 'auto',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '150%',
+                        backgroundImage: 'url("/background.jpg")', // Set the background image path
+                        backgroundRepeat: 'repeat', // Repeat the background image
+                        backgroundSize: 'auto', // Default size
+                        backgroundAttachment: 'fixed', // Fix the background so it doesn't scroll with content
+                        opacity: 0.06, // Apply opacity only to the background
                     }}
-                >
-                    <Page10 />
-                </div>
-                <div
-                    style={{
-                        flex: '0 0 50%',
-                        border: '1px solid #999',
-                        boxSizing: 'border-box',
-                    }}
-                >
-                    <Navigation />
-                </div>
-                <div style={{ flex: '0 0 16%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    <AudioVisualizer />
-                </div>
-
-                <div
-                    style={{
-                        flex: '0 0 7%',
-                        border: '1px solid #999',
-                        boxSizing: 'border-box',
-                        height: '60px',
-                        display: 'flex',
-                        overflow: 'auto',
-                        alignItems: 'flex-end',
-                        justifyContent: 'flex-end',
-                    }}
-                >
-                    <Time />
-                </div>
-
+                />
             </div>
 
-            {/* Center Column */}
-            <div style={{ flex: '0 0 80%', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ flex: '0 0 60%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    {pages1[currentPageIndex1]} {/* Display the current page from the first slideshow */}
+            {/* Main content */}
+            <div style={{ display: 'flex', minHeight: '100vh', zIndex: 1 }}>
+                {/* Left Column */}
+                <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
+                    <div
+                        style={{
+                            flex: '0 0 30%',
+                            border: '1px solid #999',
+                            width: '320px',
+                            boxSizing: 'border-box',
+                            overflow: 'auto',
+                        }}
+                    >
+                        <Page10 />
+                    </div>
+                    <div
+                        style={{
+                            flex: '0 0 30%',
+                            border: '1px solid #999',
+                            boxSizing: 'border-box',
+                        }}
+                    >
+                        <Navigation />
+                    </div>
+                    <div style={{ flex: '0 0 9%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                        <AudioVisualizer />
+                    </div>
+
+                    <div
+                        style={{
+                            flex: '0 0 4%',
+                            border: '1px solid #999',
+                            boxSizing: 'border-box',
+                            height: '60px',
+                            display: 'flex',
+                            overflow: 'auto',
+                            alignItems: 'flex-end',
+                            justifyContent: 'flex-end',
+                        }}
+                    >
+                        <Time />
+                    </div>
                 </div>
-                <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
-                    {pages2[currentPageIndex2]} {/* Display the current page from the second slideshow */}
+
+                {/* Center Column */}
+                <div style={{ flex: '0 0 80%', display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ flex: '0 0 60%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                        {pages1[currentPageIndex1]} {/* Display the current page from the first slideshow */}
+                    </div>
+                    <div style={{ flex: '0 0 50%', border: '1px solid #999', boxSizing: 'border-box' }}>
+                        {pages2[currentPageIndex2]} {/* Display the current page from the second slideshow */}
+                    </div>
                 </div>
             </div>
-
         </div>
     );
 };

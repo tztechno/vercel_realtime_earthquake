@@ -18,6 +18,9 @@ const Layout = () => {
     const [currentPageIndex1, setCurrentPageIndex1] = useState(0);
     const [currentPageIndex2, setCurrentPageIndex2] = useState(0);
 
+    // State for background opacity
+    const [backgroundOpacity, setBackgroundOpacity] = useState(0.5); // Set the initial opacity (0.5 = 50% opacity)
+
     // Arrays of pages for each slideshow
     const pages1 = [<Page1 key="page1" />, <Page7 key="page7" />, <Page9 key="page9" />];
     const pages2 = [<Page5 key="page5" />, <Page11 key="page11" />, <Page12 key="page12" />, <Page13 key="page13" />, <Page14 key="page14" />];
@@ -41,12 +44,24 @@ const Layout = () => {
     }, []);
 
     return (
-        <div style={{ display: 'flex', height: '100vh', margin: 0, boxSizing: 'border-box' }}>
+        <div
+            style={{
+                display: 'flex',
+                height: '100vh',
+                margin: 0,
+                boxSizing: 'border-box',
+                backgroundImage: 'url("/path/to/your/image.jpg")', // Set the background image path
+                backgroundSize: 'cover', // Ensure the background covers the whole area
+                backgroundPosition: 'center', // Center the background image
+                opacity: backgroundOpacity, // Apply opacity to the background image
+                transition: 'opacity 0.5s ease-in-out' // Optional smooth transition for opacity changes
+            }}
+        >
             {/* Left Column */}
             <div style={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }}>
                 <div
                     style={{
-                        flex: '0 0 73%',
+                        flex: '0 0 50%',
                         border: '1px solid #999',
                         width: '320px',
                         boxSizing: 'border-box',
@@ -94,7 +109,6 @@ const Layout = () => {
                     {pages2[currentPageIndex2]} {/* Display the current page from the second slideshow */}
                 </div>
             </div>
-
         </div>
     );
 };
