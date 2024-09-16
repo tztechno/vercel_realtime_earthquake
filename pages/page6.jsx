@@ -37,7 +37,7 @@ const Page6 = () => {
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr>
-                            <th style={{ border: '1px solid #ddd', padding: '4px' }}>JST</th>
+                            <th style={{ border: '1px solid #ddd', padding: '4px' }}>UCT</th>
                             <th style={{ border: '1px solid #ddd', padding: '4px' }}>Loc</th>
                             <th style={{ border: '1px solid #ddd', padding: '4px' }}>Mag</th>
                             <th style={{ border: '1px solid #ddd', padding: '4px' }}>Depth</th>
