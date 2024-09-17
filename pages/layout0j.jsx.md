@@ -54,18 +54,18 @@ const Layout = () => {
                 }}
             >
                 <div
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '150%',
-                        backgroundImage: 'url("/background.jpg")', // Set the background image path
-                        backgroundRepeat: 'repeat', // Repeat the background image
-                        backgroundSize: 'auto', // Default size
-                        backgroundAttachment: 'fixed', // Fix the background so it doesn't scroll with content
-                        opacity: 0.04, // Apply opacity only to the background
-                    }}
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '150%',
+                            backgroundImage: 'url("/background.jpg")', // Set the background image path
+                            backgroundRepeat: 'repeat', // Repeat the background image
+                            backgroundSize: 'auto', // Default size
+                            backgroundAttachment: 'fixed', // Fix the background so it doesn't scroll with content
+                            opacity: 0.1, // Apply opacity only to the background
+                        }}
                 />
                 <div
                     style={{
@@ -74,7 +74,7 @@ const Layout = () => {
                         left: 0,
                         width: '100%',
                         height: '100%',
-                        backgroundColor: 'rgba(0, 0, 0, 0.02)', // 黒の半透明レイヤー
+                        backgroundColor: 'rgba(0, 0, 0, 0.04)', // 黒の半透明レイヤー
                     }}
                 />
             </div>
