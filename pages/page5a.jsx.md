@@ -12,14 +12,14 @@ const ScatterPlot = ({ data }) => {
     useEffect(() => {
         if (data && data.features) {
             const plotData = data.features.map(feature => ({
-                x: new Date(feature.properties.time),
+                x: new Date(feature.properties.time).toISOString().replace('T', ' ').substring(0, 19),
                 y: feature.properties.mag
             }));
 
             setChartData({
                 datasets: [
                     {
-                        label: 'Earthquake Magnitude vs Time (UTC)',
+                        label: 'Earthquake Magnitude vs Time',
                         data: plotData,
                         backgroundColor: 'rgba(75, 192, 192, 0.6)',
                         borderColor: 'rgba(75, 192, 192, 1)',
@@ -30,10 +30,6 @@ const ScatterPlot = ({ data }) => {
         }
     }, [data]);
 
-    const formatUTCDate = (date) => {
-        return `${String(date.getUTCMonth() + 1).padStart(2, '0')}/${String(date.getUTCDate()).padStart(2, '0')} ${String(date.getUTCHours()).padStart(2, '0')}:${String(date.getUTCMinutes()).padStart(2, '0')}`;
-    };
-
     const options = {
         scales: {
             x: {
@@ -42,21 +38,16 @@ const ScatterPlot = ({ data }) => {
                     unit: 'hour',
                     displayFormats: {
                         hour: 'MM/dd HH:mm'
-                    },
+                    }
                 },
                 title: {
                     display: true,
-                    text: 'Time (UTC)'
-                },
-                ticks: {
-                    callback: function (value, index, values) {
-                        return formatUTCDate(new Date(value));
-                    }
+                    text: 'Time'
                 }
             },
             y: {
                 beginAtZero: true,
-                min: 2,
+                min: 2,  // Set the minimum value for the y-axis
                 title: {
                     display: true,
                     text: 'Magnitude'
@@ -67,8 +58,8 @@ const ScatterPlot = ({ data }) => {
             tooltip: {
                 callbacks: {
                     label: (context) => {
-                        const utcTime = formatUTCDate(new Date(context.raw.x));
-                        return `Time (UTC): ${utcTime}, Magnitude: ${context.raw.y.toFixed(2)}`;
+                        const time = new Date(context.raw.x).toISOString().replace('T', ' ').substring(0, 19);
+                        return `Time: ${time}, Magnitude: ${context.raw.y.toFixed(2)}`;
                     }
                 }
             },
