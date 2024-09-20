@@ -124,7 +124,7 @@ const Layout = () => {
                     </div>
                     <div
                         style={{
-                            flex: '0 0 15%',
+                            flex: '0 0 18%',
                             border: '1px solid #999',
                             boxSizing: 'border-box',
                             height: '60px',
