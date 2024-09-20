@@ -28,7 +28,7 @@ const Page15 = () => {
                 setLastEventId(latestEvent.id);
                 announceNewEarthquake(latestEvent);
             } else {
-                console.log('No new earthquakes detected.');
+                console.log('No new earthquakes detected. Skipping announcement.');
             }
         }
     };
@@ -63,15 +63,16 @@ const Page15 = () => {
 
     return (
         <div style={{ padding: '20px' }}>
-            <p><strong>Earthquake Notification</strong></p>
+            <p><strong>Earthquake Notification System</strong></p>
             {announcement && (
                 <div style={{
                     backgroundColor: '#f0f0f0',
-                    border: '2px solid #ddd',
+                    border: '1px solid #ddd',
                     borderRadius: '5px',
                     padding: '10px',
                     marginTop: '10px'
                 }}>
+                    <h2>Latest Announcement:</h2>
                     <p>{announcement}</p>
                 </div>
             )}
