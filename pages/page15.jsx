@@ -2,11 +2,13 @@ import React, { useEffect, useState, useRef } from 'react';
 
 const Page15 = () => {
     const [data, setData] = useState(null);
-    const [lastEventId, setLastEventId] = useState(null);
+    const [lastAnnouncedEventId, setLastAnnouncedEventId] = useState(null);
     const [announcement, setAnnouncement] = useState('');
     const speechSynthesisRef = useRef(null);
+    const lastFetchTimeRef = useRef(0);
 
     const fetchData = async () => {
+        const currentTime = Date.now();
         try {
             const response = await fetch('/api/fetchData');
             if (!response.ok) {
@@ -15,20 +17,23 @@ const Page15 = () => {
             const result = await response.json();
             console.log('Fetched data:', result.data);
             setData(result.data);
-            checkForNewEarthquake(result.data);
+            checkForNewEarthquake(result.data, currentTime);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
 
-    const checkForNewEarthquake = (newData) => {
+    const checkForNewEarthquake = (newData, fetchTime) => {
         if (newData?.features && newData.features.length > 0) {
             const latestEvent = newData.features[0];
-            if (latestEvent.id !== lastEventId) {
-                setLastEventId(latestEvent.id);
+            const eventTime = latestEvent.properties.time;
+
+            if (eventTime > lastFetchTimeRef.current && latestEvent.id !== lastAnnouncedEventId) {
+                setLastAnnouncedEventId(latestEvent.id);
                 announceNewEarthquake(latestEvent);
+                lastFetchTimeRef.current = fetchTime;
             } else {
-                console.log('No new earthquakes detected. Skipping announcement.');
+                console.log('No new earthquakes detected since last check. Skipping announcement.');
             }
         } else {
             console.log('No earthquake data available.');
@@ -38,7 +43,7 @@ const Page15 = () => {
     const announceNewEarthquake = (event) => {
         const { mag, place, time } = event.properties;
         const eventTime = new Date(time).toLocaleString();
-        const announcementText = `New earthquake detected at ${eventTime}. Location: ${place}, Magnitude: ${mag.toFixed(1)}`;
+        const announcementText = `New earthquake detected at ${place}, Magnitude: ${mag.toFixed(1)}`;
         setAnnouncement(announcementText);
 
         if (typeof window !== 'undefined' && speechSynthesisRef.current) {
@@ -78,8 +83,8 @@ const Page15 = () => {
                     <p>{announcement}</p>
                 </div>
             )}
-            {lastEventId && (
-                <p>ID: {lastEventId}</p>
+            {lastAnnouncedEventId && (
+                <p>ID: {lastAnnouncedEventId}</p>
             )}
         </div>
     );
