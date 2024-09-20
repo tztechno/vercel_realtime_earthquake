@@ -30,12 +30,15 @@ const Page15 = () => {
             } else {
                 console.log('No new earthquakes detected. Skipping announcement.');
             }
+        } else {
+            console.log('No earthquake data available.');
         }
     };
 
     const announceNewEarthquake = (event) => {
-        const { mag, place } = event.properties;
-        const announcementText = `New earthquake detected. Location: ${place}, Magnitude: ${mag.toFixed(1)}`;
+        const { mag, place, time } = event.properties;
+        const eventTime = new Date(time).toLocaleString();
+        const announcementText = `New earthquake detected at ${eventTime}. Location: ${place}, Magnitude: ${mag.toFixed(1)}`;
         setAnnouncement(announcementText);
 
         if (typeof window !== 'undefined' && speechSynthesisRef.current) {
@@ -63,7 +66,7 @@ const Page15 = () => {
 
     return (
         <div style={{ padding: '20px' }}>
-            <p><strong>Earthquake Notification System</strong></p>
+            <h2>Notification</h2>
             {announcement && (
                 <div style={{
                     backgroundColor: '#f0f0f0',
@@ -72,9 +75,11 @@ const Page15 = () => {
                     padding: '10px',
                     marginTop: '10px'
                 }}>
-                    <h2>Latest Announcement:</h2>
                     <p>{announcement}</p>
                 </div>
+            )}
+            {lastEventId && (
+                <p>ID: {lastEventId}</p>
             )}
         </div>
     );
