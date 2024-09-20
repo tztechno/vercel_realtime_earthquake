@@ -27,7 +27,7 @@ const ClockDisplay = () => {
         updateClocks();
         const intervalId = setInterval(updateClocks, 1000);
 
-        return () => clearInterval(intervalId); // Cleanup on component unmount
+        return () => clearInterval(intervalId);  // Cleanup on component unmount
     }, []);
 
     return (

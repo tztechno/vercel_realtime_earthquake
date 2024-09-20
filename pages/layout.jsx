@@ -8,6 +8,7 @@ import Page11 from './page11';
 import Page12 from './page12';
 import Page13 from './page13';
 import Page14 from './page14';
+import Page15 from './page15';
 import Time from './time';
 import AudioVisualizer from './sound';
 import Navigation from '../components/Navigation';
@@ -109,7 +110,7 @@ const Layout = () => {
 
                     <div
                         style={{
-                            flex: '0 0 4%',
+                            flex: '0 0 3%',
                             border: '1px solid #999',
                             boxSizing: 'border-box',
                             height: '60px',
@@ -121,6 +122,21 @@ const Layout = () => {
                     >
                         <Time />
                     </div>
+                    <div
+                        style={{
+                            flex: '0 0 15%',
+                            border: '1px solid #999',
+                            boxSizing: 'border-box',
+                            height: '60px',
+                            display: 'flex',
+                            overflow: 'auto',
+                            alignItems: 'flex-end',
+                            justifyContent: 'flex-end',
+                        }}
+                    >
+                        <Page15 />
+                    </div>
+
                 </div>
 
                 {/* Center Column */}
